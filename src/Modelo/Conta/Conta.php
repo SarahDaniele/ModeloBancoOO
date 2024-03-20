@@ -4,9 +4,9 @@ namespace Alura\Banco\Modelo\Conta;
 
 abstract class Conta
 {
-    private $titular;
-    protected $saldo;
-    private static $numeroDeContas = 0;
+    private Titular $titular;
+    protected float $saldo;
+    private static int $numeroDeContas = 0;
 
 
 
@@ -32,8 +32,9 @@ abstract class Conta
         if ($valorSaque < 1) {
             echo ("O valor do saque tem que ser maior que 0");
     }
-        if ($this->saldo < $valorSaque) {    
-            echo ("Saldo insuficiente");
+        if ( $valorSaque> $this->saldo) {    
+            //echo ("Saldo insuficiente");
+            throw new SaldoInsuficienteException($valorSaque, $this->saldo);
         }
         if ($valorSaque > 5000) {
             echo ("O valor diario de saque é de no máximo 5.000,00 ");
@@ -46,8 +47,9 @@ abstract class Conta
 
     public function deposita(float $valorDeposito):Conta
     {
-        if ($valorDeposito < 1) {
-            echo ("O valor do deposito tem que ser maior que 0");
+        if ($valorDeposito < 0) {
+            //echo ("O valor do deposito tem que ser maior que 0");
+            throw new \InvalidArgumentException();
         }
         if ($valorDeposito > 5000) {
             echo ("O valor diario de deposito é de no máximo 5.000,00 ");

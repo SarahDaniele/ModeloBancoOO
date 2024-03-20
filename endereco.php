@@ -1,8 +1,8 @@
 <?php
 
- use Alura\Banco\Modelo\Endereco;
-
 require_once 'autoload.php';
+use Alura\Banco\Modelo\Endereco;
+
 
 $umEndereco = new Endereco(
     'Rio',

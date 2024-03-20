@@ -1,6 +1,8 @@
 <?php
 
+
 namespace Alura\Banco\Modelo;
+
 
 abstract class Pessoa 
 {
@@ -30,9 +32,9 @@ abstract class Pessoa
 
     final protected function validaNome(string $nomeTitular)
     {   
-        if (strlen($nomeTitular) < 4) {
-        echo "Nome precisa ter pelo menos 4 caracteres". PHP_EOL;
-        exit();
+        if (strlen(trim($nomeTitular)) < 4) {
+        //echo "Nome precisa ter pelo menos 4 caracteres". PHP_EOL;
+        throw new NomeCurtoException("$nomeTitular");
         }
     }
 

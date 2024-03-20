@@ -14,7 +14,8 @@ final class CPF
             ]
         ]);
         if ($numero === false) {
-            echo ("Cpf inválido");
+            //echo ("Cpf inválido");
+            throw new \InvalidArgumentException("CPF inválido");
         }
         $this->numero = $numero;
     }

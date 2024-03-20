@@ -4,7 +4,7 @@ namespace Alura\Banco\Modelo\Conta;
 
 class ContaCorrente extends Conta 
 {
-    public function tranfere(float $valorTrasferencia, Conta $contaDestino): Conta
+    public function tranfere(float $valorTrasferencia, Conta $contaDestino): ContaCorrente
     {
         if ($valorTrasferencia < 1) {
             echo ("O valor transferido tem que ser maior que 0");
